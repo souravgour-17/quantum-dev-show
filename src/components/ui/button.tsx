@@ -15,11 +15,16 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        // Enhanced variants for portfolio
+        hero: "bg-gradient-to-r from-primary to-neon-cyan text-primary-foreground font-semibold shadow-[0_0_20px_hsl(var(--primary)/0.5)] hover:shadow-[0_0_30px_hsl(var(--primary)/0.7)] hover:scale-105 transition-all duration-300",
+        glass: "glass border-glass-border text-foreground backdrop-blur-sm hover:bg-glass-border/20 hover:text-primary transition-all duration-300",
+        neon: "bg-transparent border border-neon-cyan text-neon-cyan shadow-[0_0_10px_hsl(var(--neon-cyan)/0.3)] hover:bg-neon-cyan hover:text-background hover:shadow-[0_0_20px_hsl(var(--neon-cyan)/0.6)] transition-all duration-300"
       },
       size: {
         default: "h-10 px-4 py-2",
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
+        xl: "h-12 rounded-lg px-10 text-base",
         icon: "h-10 w-10",
       },
     },
