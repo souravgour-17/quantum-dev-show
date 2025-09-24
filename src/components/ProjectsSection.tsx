@@ -24,16 +24,16 @@ const projects = [
     id: 1,
     title: "Calculator App",
     description: "Modern calculator with gradient design and smooth animations",
-    image: projectImages.calculator,
+    image: "/lovable-uploads/ef04aed4-6bdd-4d71-807d-35db611f2fe9.png",
     tech: ["React", "CSS3", "JavaScript"],
     github: "#",
     live: "#"
   },
   {
     id: 2,
-    title: "Emoji Flip Game",
+    title: "Emoji Flip Game", 
     description: "Interactive memory game with beautiful Japanese-inspired design",
-    image: projectImages.emojiGame,
+    image: "/lovable-uploads/66294794-b492-40fe-ab02-5817706eaf61.png",
     tech: ["React", "GSAP", "Game Logic"],
     github: "#",
     live: "#"
@@ -41,8 +41,8 @@ const projects = [
   {
     id: 3,
     title: "Number Guessing Game",
-    description: "Fun guessing game with score tracking and responsive UI",
-    image: projectImages.numberGame,
+    description: "Fun guessing game with score tracking and responsive UI", 
+    image: "/lovable-uploads/0d65c2eb-6b0e-4331-a3ea-14900e6b1475.png",
     tech: ["JavaScript", "HTML5", "CSS3"],
     github: "#",
     live: "#"
@@ -51,7 +51,7 @@ const projects = [
     id: 4,
     title: "University Portal",
     description: "Student management system with code integration features",
-    image: projectImages.university,
+    image: "/lovable-uploads/59dc46f2-4eb8-4cf5-a223-fd6fe82b7536.png", 
     tech: ["React", "Node.js", "Database"],
     github: "#",
     live: "#"
@@ -60,8 +60,8 @@ const projects = [
     id: 5,
     title: "AuthKit Interface",
     description: "Modern authentication system with multiple login options",
-    image: projectImages.authkit,
-    tech: ["React", "OAuth", "Security"],
+    image: "/lovable-uploads/79316e16-1ce4-4c70-b983-ec66e7399c68.png",
+    tech: ["React", "OAuth", "Security"], 
     github: "#",
     live: "#"
   },
@@ -69,7 +69,7 @@ const projects = [
     id: 6,
     title: "Modal Components",
     description: "Reusable modal system with smooth transitions",
-    image: projectImages.modal,
+    image: "/lovable-uploads/f822ae39-caac-4683-9be0-7250a4942391.png",
     tech: ["React", "TypeScript", "UI/UX"],
     github: "#",
     live: "#"
