@@ -3,7 +3,8 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import profileImage from "@/assets/profile.jpg";
+// Using uploaded profile image reference
+const profileImg = "/lovable-uploads/b911f8b4-f58e-404b-a12f-662b99ef4710.png";
 import { 
   FileCode, 
   Palette, 
@@ -118,7 +119,7 @@ const AboutSection = () => {
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-neon-cyan p-1 glow-primary">
                 <div className="w-full h-full bg-background rounded-full p-2">
                   <img
-                    src={profileImage}
+                    src={profileImg}
                     alt="Sourav - Web Developer"
                     className="w-full h-full object-cover rounded-full"
                   />

@@ -62,8 +62,19 @@ const HeroSection = () => {
       ref={heroRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
+      {/* Spline 3D Background */}
+      <div className="absolute inset-0 z-0">
+        <iframe
+          src="https://my.spline.design/orb-9SITXOaRO7Np2OG4tTA0DddX/"
+          width="100%"
+          height="100%"
+          className="border-0 object-cover"
+          title="3D Background Animation"
+        />
+      </div>
+      
       {/* Background gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/20" />
+      <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/60 to-secondary/40 z-10" />
 
       {/* Floating orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -81,50 +92,34 @@ const HeroSection = () => {
         ))}
       </div>
 
-      <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left content */}
-          <div className="text-center lg:text-left">
-            <div ref={headlineRef}>
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                Hi, I'm{" "}
-                <span className="gradient-text text-glow">Sourav</span>
-                <br />
-                <span className="text-3xl md:text-5xl text-muted-foreground">
-                  Web Developer
-                </span>
-              </h1>
-            </div>
-
-            <div ref={subtitleRef}>
-              <p className="text-xl text-muted-foreground mb-8 max-w-xl">
-                Crafting immersive digital experiences with cutting-edge technologies.
-                Specializing in modern web development, animations, and futuristic UI design.
-              </p>
-            </div>
-
-            <div ref={ctaRef}>
-              <Button
-                variant="hero"
-                size="xl"
-                className="px-12 py-4 text-lg font-bold"
-              >
-                Hire Me
-              </Button>
-            </div>
+      <div className="container mx-auto px-6 relative z-20">
+        <div className="text-center">
+          <div ref={headlineRef}>
+            <h1 className="text-6xl md:text-8xl font-bold mb-6 leading-tight">
+              Hi, I'm{" "}
+              <span className="gradient-text text-glow">Sourav</span>
+              <br />
+              <span className="text-4xl md:text-6xl text-muted-foreground">
+                Web Developer
+              </span>
+            </h1>
           </div>
 
-          {/* Right content - Spline 3D */}
-          <div ref={splineRef} className="relative">
-            <div className="aspect-square max-w-lg mx-auto glass rounded-2xl overflow-hidden">
-              <iframe
-                src="https://my.spline.design/orb-OKcKiE6CUxd99oESS4SUnbkB/"
-                width="100%"
-                height="100%"
-                className="border-0"
-                title="3D Orb Animation"
-              />
-            </div>
+          <div ref={subtitleRef}>
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Crafting immersive digital experiences with cutting-edge technologies.
+              Specializing in modern web development, animations, and futuristic UI design.
+            </p>
+          </div>
+
+          <div ref={ctaRef}>
+            <Button
+              variant="hero"
+              size="xl"
+              className="px-12 py-4 text-lg font-bold"
+            >
+              Hire Me
+            </Button>
           </div>
         </div>
       </div>

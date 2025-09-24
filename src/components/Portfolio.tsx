@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useLocomotiveScroll } from "@/hooks/useLocomotiveScroll";
 import Preloader from "./Preloader";
 import Navigation from "./Navigation";
 import HeroSection from "./HeroSection";
@@ -12,6 +13,7 @@ import FooterSection from "./FooterSection";
 const Portfolio = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [showContent, setShowContent] = useState(false);
+  const { scrollRef } = useLocomotiveScroll();
 
   const handlePreloaderComplete = () => {
     setIsLoading(false);
@@ -41,13 +43,21 @@ const Portfolio = () => {
 
       {/* Main Content */}
       {showContent && (
-        <div className="min-h-screen">
+        <div ref={scrollRef} className="min-h-screen" data-scroll-container>
           <Navigation />
           <main>
-            <HeroSection />
-            <AboutSection />
-            <ProjectsSection />
-            <ContactSection />
+            <div data-scroll data-scroll-speed="-3">
+              <HeroSection />
+            </div>
+            <div data-scroll data-scroll-speed="-1">
+              <AboutSection />
+            </div>
+            <div data-scroll data-scroll-speed="-2">
+              <ProjectsSection />
+            </div>
+            <div data-scroll data-scroll-speed="-1">
+              <ContactSection />
+            </div>
           </main>
           <FooterSection />
         </div>
