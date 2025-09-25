@@ -12,30 +12,29 @@ const Navigation = () => {
 
   useEffect(() => {
     // Navigation entrance animation
-    gsap.fromTo(navRef.current,
+    gsap.fromTo(
+      navRef.current,
       { opacity: 0, y: -50 },
       { opacity: 1, y: 0, duration: 1, delay: 3.5, ease: "power2.out" }
     );
 
     // Scroll effect
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    if (element) element.scrollIntoView({ behavior: "smooth" });
     setIsMenuOpen(false);
+  };
+
+  const openResume = () => {
+    window.open("/SouravGour-Resume.pdf", "_blank"); // Open PDF in new tab
   };
 
   return (
@@ -43,34 +42,32 @@ const Navigation = () => {
       <nav
         ref={navRef}
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          isScrolled 
-            ? 'glass-strong backdrop-blur-md border-b border-glass-border' 
-            : 'bg-transparent'
+          isScrolled
+            ? "glass-strong backdrop-blur-md border-b border-glass-border"
+            : "bg-transparent"
         }`}
       >
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <div className="text-2xl font-bold gradient-text">
-              Sourav
-            </div>
+            <div className="text-2xl font-bold gradient-text">Sourav</div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
               <button
-                onClick={() => scrollToSection('about')}
+                onClick={() => scrollToSection("about")}
                 className="text-muted-foreground hover:text-primary transition-colors duration-300"
               >
                 About
               </button>
               <button
-                onClick={() => scrollToSection('projects')}
+                onClick={() => scrollToSection("frontend-projects")}
                 className="text-muted-foreground hover:text-primary transition-colors duration-300"
               >
                 Projects
               </button>
               <button
-                onClick={() => scrollToSection('contact')}
+                onClick={() => scrollToSection("contact")}
                 className="text-muted-foreground hover:text-primary transition-colors duration-300"
               >
                 Contact
@@ -78,6 +75,7 @@ const Navigation = () => {
               <Button
                 variant="outline"
                 className="glass border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                onClick={openResume}
               >
                 Resume
               </Button>
@@ -97,22 +95,25 @@ const Navigation = () => {
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
         <div className="fixed inset-0 z-50 md:hidden">
-          <div className="absolute inset-0 bg-background/95 backdrop-blur-md" onClick={toggleMenu} />
+          <div
+            className="absolute inset-0 bg-background/95 backdrop-blur-md"
+            onClick={toggleMenu}
+          />
           <div className="relative glass-strong h-full w-full flex flex-col items-center justify-center gap-8">
             <button
-              onClick={() => scrollToSection('about')}
+              onClick={() => scrollToSection("about")}
               className="text-2xl text-muted-foreground hover:text-primary transition-colors duration-300"
             >
               About
             </button>
             <button
-              onClick={() => scrollToSection('projects')}
+              onClick={() => scrollToSection("frontend-projects")}
               className="text-2xl text-muted-foreground hover:text-primary transition-colors duration-300"
             >
               Projects
             </button>
             <button
-              onClick={() => scrollToSection('contact')}
+              onClick={() => scrollToSection("contact")}
               className="text-2xl text-muted-foreground hover:text-primary transition-colors duration-300"
             >
               Contact
@@ -121,6 +122,7 @@ const Navigation = () => {
               variant="outline"
               size="lg"
               className="glass border-primary text-primary hover:bg-primary hover:text-primary-foreground mt-4"
+              onClick={openResume}
             >
               Resume
             </Button>

@@ -3,26 +3,32 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-// Using uploaded profile image reference
-const profileImg = "/lovable-uploads/b911f8b4-f58e-404b-a12f-662b99ef4710.png";
 import { 
   FileCode, 
-  Palette, 
   Zap, 
   Globe, 
-  Smartphone, 
-  Database 
-} from "lucide-react";
+  Database, 
+  GitBranch, 
+  Cloud, 
+  Server 
+} from "lucide-react"; // Added icons for new skills
+
+// Using uploaded profile image reference
+const profileImg = "/lovable-uploads/b911f8b4-f58e-404b-a12f-662b99ef4710.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Updated skills: included Full Stack, MERN, Git, Deployment
 const skills = [
   { icon: FileCode, name: "HTML/CSS", level: 95 },
   { icon: Zap, name: "JavaScript", level: 90 },
   { icon: Globe, name: "React", level: 88 },
-  { icon: Palette, name: "GSAP", level: 85 },
-  { icon: Smartphone, name: "Responsive", level: 92 },
-  { icon: Database, name: "Backend", level: 80 },
+  { icon: Database, name: "Node.js & Express", level: 85 },
+  { icon: Database, name: "MongoDB", level: 80 },
+  { icon: Server, name: "Full Stack Development", level: 85 },
+  { icon: Zap, name: "MERN Stack", level: 82 },
+  { icon: GitBranch, name: "Git & GitHub", level: 90 },
+  { icon: Cloud, name: "Deployment", level: 80 },
 ];
 
 const AboutSection = () => {
@@ -33,7 +39,6 @@ const AboutSection = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Main timeline triggered on scroll
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -43,13 +48,13 @@ const AboutSection = () => {
         }
       });
 
-      // Section fade and blur effect
+      // Section fade and blur
       tl.fromTo(sectionRef.current,
         { opacity: 0, filter: "blur(5px)" },
         { opacity: 1, filter: "blur(0px)", duration: 0.8 }
       );
 
-      // Image animation from left
+      // Image animation
       tl.fromTo(imageRef.current,
         { opacity: 0, x: -100, rotateY: 15 },
         { opacity: 1, x: 0, rotateY: 0, duration: 1, ease: "power2.out" },
@@ -63,7 +68,7 @@ const AboutSection = () => {
         "-=0.7"
       );
 
-      // Skills staggered animation
+      // Skills animation
       tl.fromTo(".skill-item",
         { opacity: 0, y: 30, scale: 0.8 },
         { 
@@ -81,24 +86,12 @@ const AboutSection = () => {
       const imageElement = imageRef.current;
       if (imageElement) {
         imageElement.addEventListener("mouseenter", () => {
-          gsap.to(imageElement, {
-            scale: 1.05,
-            rotateY: -5,
-            duration: 0.3,
-            ease: "power2.out"
-          });
+          gsap.to(imageElement, { scale: 1.05, rotateY: -5, duration: 0.3, ease: "power2.out" });
         });
-
         imageElement.addEventListener("mouseleave", () => {
-          gsap.to(imageElement, {
-            scale: 1,
-            rotateY: 0,
-            duration: 0.3,
-            ease: "power2.out"
-          });
+          gsap.to(imageElement, { scale: 1, rotateY: 0, duration: 0.3, ease: "power2.out" });
         });
       }
-
     }, sectionRef);
 
     return () => ctx.revert();
@@ -153,7 +146,7 @@ const AboutSection = () => {
             <div ref={skillsRef}>
               <h3 className="text-2xl font-semibold mb-6 text-primary">Skills & Technologies</h3>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {skills.map((skill, index) => {
+                {skills.map((skill) => {
                   const Icon = skill.icon;
                   return (
                     <div

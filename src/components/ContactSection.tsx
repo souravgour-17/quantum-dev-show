@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Send, Github, Linkedin, Mail, MapPin } from "lucide-react";
+import { Send, Github, Linkedin, Mail, MapPin, Instagram } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,7 +21,6 @@ const ContactSection = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Form inputs animation
       gsap.fromTo(".form-input",
         { opacity: 0, x: -50 },
         {
@@ -37,7 +36,6 @@ const ContactSection = () => {
         }
       );
 
-      // Social icons animation
       gsap.fromTo(".social-icon",
         { opacity: 0, scale: 0 },
         {
@@ -60,8 +58,7 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Animate submit button
+
     gsap.to(".submit-btn", {
       scale: 0.95,
       duration: 0.1,
@@ -70,10 +67,8 @@ const ContactSection = () => {
       ease: "power2.inOut"
     });
 
-    // Here you would handle form submission
     console.log("Form submitted:", formData);
-    
-    // Reset form
+
     setFormData({ name: "", email: "", message: "" });
   };
 
@@ -101,7 +96,6 @@ const ContactSection = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Contact Form */}
           <div className="glass rounded-2xl p-8">
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div className="form-input">
@@ -164,11 +158,10 @@ const ContactSection = () => {
             </form>
           </div>
 
-          {/* Contact Info */}
           <div className="space-y-8">
             <div className="glass rounded-2xl p-8">
               <h3 className="text-2xl font-semibold mb-6 text-primary">Get in Touch</h3>
-              
+
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
@@ -176,7 +169,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Email</p>
-                    <p className="text-foreground font-medium">sourav@example.com</p>
+                    <p className="text-foreground font-medium">souravgour798@gmail.com</p>
                   </div>
                 </div>
 
@@ -192,27 +185,40 @@ const ContactSection = () => {
               </div>
             </div>
 
-            {/* Social Links */}
             <div className="glass rounded-2xl p-8">
               <h3 className="text-xl font-semibold mb-6 text-primary">Follow Me</h3>
               <div className="flex gap-4">
                 <a
-                  href="#"
+                  href="https://github.com/souravgour-17/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="social-icon w-12 h-12 glass-strong rounded-lg flex items-center justify-center text-muted-foreground hover:text-primary hover:glow-primary transition-all duration-300 hover:scale-110"
                 >
                   <Github className="w-5 h-5" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/in/sourav-gour-0574932a9/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="social-icon w-12 h-12 glass-strong rounded-lg flex items-center justify-center text-muted-foreground hover:text-primary hover:glow-primary transition-all duration-300 hover:scale-110"
                 >
                   <Linkedin className="w-5 h-5" />
                 </a>
                 <a
-                  href="#"
+                  href="mailto:souravgour798@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="social-icon w-12 h-12 glass-strong rounded-lg flex items-center justify-center text-muted-foreground hover:text-primary hover:glow-primary transition-all duration-300 hover:scale-110"
                 >
                   <Mail className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://www.instagram.com/_gour_sourav/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-icon w-12 h-12 glass-strong rounded-lg flex items-center justify-center text-muted-foreground hover:text-primary hover:glow-primary transition-all duration-300 hover:scale-110"
+                >
+                  <Instagram className="w-5 h-5" />
                 </a>
               </div>
             </div>
